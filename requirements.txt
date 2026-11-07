@@ -1,0 +1,21 @@
+# AurorA - Aurora Forecast App (lean dependencies for small .app bundles)
+# Core fetching + parsing
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+
+# Web dashboard (Flask is dramatically lighter than FastAPI + uvicorn[standard])
+flask>=3.0.0
+
+# macOS menubar
+rumps>=0.4.0; sys_platform == "darwin"
+
+# Recommended Python for best rumps + small bundles:
+#   brew install python@3.12
+#   /opt/homebrew/bin/python3 -m venv .venv
+
+# Note: we use a pure stdlib threading scheduler (no apscheduler)
+# Note: html.parser (stdlib) instead of lxml
+# Note: stdlib dataclasses instead of pydantic (pydantic only came in via FastAPI before)
+
+# Dev / packaging (optional)
+py2app>=0.28.0; sys_platform == "darwin"
